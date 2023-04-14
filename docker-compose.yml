@@ -44,6 +44,14 @@ services:
         networks:
             - laravel
 
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+        networks:
+            - laravel
+
     # queue
     queue:
         image: especializati/laravel9-app

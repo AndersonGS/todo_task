@@ -48,6 +48,18 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
+Gerar os arquivos de resorces
+```sh
+npm install
+```
+```sh
+npm run dev
+```
+
+Gerar dados no Banco:
+```sh
+php artisan db:seed --class=DatabaseSeeder
+```
 
 Acessar o projeto
 [http://localhost:8989](http://localhost:8989)

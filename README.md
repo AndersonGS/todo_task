@@ -8,10 +8,10 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=laravel
+DB_CONNECTION=pgsql
+DB_HOST=172.20.0.1
+DB_PORT=5432
+DB_DATABASE=postgres
 DB_USERNAME=root
 DB_PASSWORD=root
 

@@ -14,7 +14,21 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <form>
+                        <input type="search" class="form-control" placeholder="Buscar tarefa aqui" name="search" value="{{ request('search') }}">
+                    </form>
+
+                    <!-- List items -->
+                    <ul class="list-group mt-3">
+                        @forelse($tarefas as $tarefa)
+                            <li class="list-group-item media-right">
+                                {{ $tarefa->tarefa }}
+                                <a class="media-object">BV</a>
+                            </li>
+                        @empty
+                            <li class="list-group-item list-group-item-danger">Tarefa não Encontrada.</li>
+                        @endforelse
+                    </ul>
                 </div>
             </div>
         </div>

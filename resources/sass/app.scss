@@ -6,3 +6,15 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+.circle-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 11px;
+    line-height: 20px;
+    text-align: center;
+    background: #0d6efd;
+    color: #fff;
+  }

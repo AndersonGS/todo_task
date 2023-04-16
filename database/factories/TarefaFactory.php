@@ -23,7 +23,8 @@ class TarefaFactory extends Factory
     public function definition()
     {
         return [
-            'tarefa' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'titulo' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'descricao' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
             'data_limite_conclusao' => $this->faker->dateTimeBetween($startDate = 'now', $endDate = '1 years', $timezone = null)
         ];
     }

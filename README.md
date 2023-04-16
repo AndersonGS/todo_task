@@ -58,6 +58,9 @@ npm run dev
 
 Gerar dados no Banco:
 ```sh
+php artisan migrate
+```
+```sh
 php artisan db:seed --class=DatabaseSeeder
 ```
 

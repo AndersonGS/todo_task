@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tarefa_usuario', function (Blueprint $table) {
+        Schema::create('tarefas', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('tarefa_id');
-            $table->foreign('tarefa_id')->references('id')->on('tarefas');
-            $table->boolean('criador')->default('0');
+            $table->string('titulo');
+            $table->string('descricao');
+            $table->date('data_limite_conclusao');
+            $table->boolean('concluida')->default('0');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tarefa_usuario');
+        Schema::dropIfExists('tarefas');
     }
 };

@@ -11,8 +11,10 @@ class Tarefa extends Model
     use HasFactory;
 
     protected $fillable = [
-        'tarefa',
+        'titulo',
+        'descricao',
         'data_limite_conclusao',
+        'concluida'
     ];
 
     public function users(){

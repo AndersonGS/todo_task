@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tarefas', function (Blueprint $table) {
+        Schema::create('tarefa_usuario', function (Blueprint $table) {
             $table->id();
-            $table->string('tarefa');
-            $table->date('data_limite_conclusao');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('tarefa_id');
+            $table->foreign('tarefa_id')->references('id')->on('tarefas');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tarefas');
+        Schema::dropIfExists('tarefa_usuario');
     }
 };

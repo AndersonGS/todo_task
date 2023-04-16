@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('tarefas', App\Http\Controllers\TarefaController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('home');
+        })->only([
+            'store', 'show','update','destroy'
+        ])->middleware('auth');
+

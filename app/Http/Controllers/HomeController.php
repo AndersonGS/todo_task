@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarefa;
+use App\Models\User;
 
 class HomeController extends Controller{
     /**
@@ -23,10 +24,13 @@ class HomeController extends Controller{
     public function index(){
 
         if (request('search')) {
-            $tarefas = Tarefa::where('tarefa', 'like', '%' . request('search') . '%')->get();
+            $tarefas = Tarefa::where('titulo', 'like', '%' . request('search') . '%')
+            ->orWhere('descricao', 'like', '%' . request('search') . '%')
+            ->get();
         } else {
             $tarefas = Tarefa::all();
         }
-        return view('home')->with('tarefas', $tarefas);
+        $users = User::all();
+        return view('home')->with('tarefas', $tarefas)->with('users', $users);
     }
 }

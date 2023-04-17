@@ -22,9 +22,43 @@
                         </div>
                     @endif
 
-                    <form>
-                        <input type="search" class="form-control" placeholder="Buscar tarefa aqui" name="search" value="{{ request('search') }}">
-                    </form>
+                    <div class="row">
+                        <div class="col">
+                            <form>
+                                <input type="search" class="form-control" placeholder="Busque a tarefa" name="search" value="{{ request('search') }}">
+                            </form>
+                        </div>
+                        <div class="col-auto">
+                            <div class="vr" style="height: 40px;"></div>
+                        </div>
+                        <div class="col-auto">
+                            <form>
+                                <input type="text" name="filter" value="criacao" hidden>
+                                <button type="submit" class="btn btn-outline-info">
+                                    <i class="bi bi-sort-down"></i>
+                                    Criação
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-auto">
+                            <form>
+                                <input type="text" name="filter" value="conclusao" hidden>
+                                <button type="submit" class="btn btn-outline-info">
+                                    <i class="bi bi-sort-down"></i>
+                                    Conclusão
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-auto">
+                            <form>
+                                <input type="text" name="filter" value="responsavel" hidden>
+                                <button type="submit" class="btn btn-outline-info">
+                                    <i class="bi bi-sort-down"></i>
+                                    Responsável
+                                </button>
+                            </form>
+                        </div>
+                    </div>
 
                     <!-- List items -->
                     <ul class="list-group mt-3">
@@ -48,6 +82,7 @@
                                             data-bs-title="{{ $user->name }}" value="{{ $user->id }}" id='lst_trf_usuario_{{ $tarefa->id }}'>
                                                 {{ $user->name[0] . $user->name[1] }}
                                             </label>
+                                            @break
                                             @endforeach
                                         </li>
                                         <li class="list-inline-item">

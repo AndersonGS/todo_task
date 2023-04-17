@@ -10,19 +10,19 @@
             @csrf
           <div class="mb-3">
             <label for="tarefa_titulo" class="col-form-label">Titulo:</label>
-            <input type="text" class="form-control" id="tarefa_titulo" name="tarefa_titulo" require>
+            <input type="text" class="form-control" id="tarefa_titulo" name="tarefa_titulo" required>
           </div>
           <div class="mb-3">
             <label for="tarefa_descricao" class="col-form-label">Descrição:</label>
-            <textarea class="form-control" id="tarefa_descricao" name="tarefa_descricao" require></textarea>
+            <textarea class="form-control" id="tarefa_descricao" name="tarefa_descricao" required></textarea>
           </div>
           <div class="mb-3">
             <label for="tarefa_data" class="col-form-label">Data:</label>
-            <input type="text" class="form-control" id="tarefa_data" name="tarefa_data" require>
+            <input type="text" class="form-control" id="tarefa_data" name="tarefa_data" required>
           </div>
           <div class="mb-3">
           <label for="tarefa_data" class="col-form-label">Responsável:</label>
-            <select class="form-select" id="floatingSelect" aria-label="Escolha o Responsável" id="multiple-select-field" name="tarefa_responsavel">
+            <select class="form-select" id="floatingSelect" aria-label="Escolha o Responsável" id="multiple-select-field" name="tarefa_responsavel" required>
                 <option selected disabled >Selecione um usuário</option>
                 @foreach ($users as $user)
                 <option value="{{ $user->id}}">

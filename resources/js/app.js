@@ -30,7 +30,10 @@ if (editarTarefaModal) {
     var titulo = document.getElementById("lst_trf_titulo_"+recipientEditar).innerHTML;
     var descricao = document.getElementById("lst_trf_descricao_"+recipientEditar).innerHTML;
     var dataConclusao = document.getElementById("lst_trf_data_"+recipientEditar).innerHTML;
-    var usuario = document.getElementById("lst_trf_usuario_"+recipientEditar).getAttribute("value");
+    var usuario = document.getElementById("lst_trf_usuario_"+recipientEditar);
+    if(usuario){
+        usuario = usuario.getAttribute("value");
+    }
 
     document.getElementById("tarefa_editar_titulo").value = titulo;
     document.getElementById("tarefa_editar_descricao").value = descricao;
@@ -73,9 +76,15 @@ function tarefaDelete(){
     });
 }
 
-$('#botao_editar').on('click', function(e){
+
+$('#editar_tarefa').on('submit', function(e){
     e.preventDefault();
-    tarefaEdit();
+    if($("form")[0].checkValidity()) {
+        var myModalEl = document.getElementById('editarTarefaModal');
+        var modal = bootstrap.Modal.getInstance(myModalEl)
+        modal.hide()
+        tarefaEdit();
+    }else console.log("invalid form");
 });
 
 function tarefaEdit(){
@@ -108,3 +117,16 @@ function tarefaEdit(){
         }
     });
 }
+
+
+$(document)
+  .ajaxStart(function () {
+    console.log('Start');
+    $("#overlay").fadeIn(300);
+  })
+  .ajaxStop(function () {
+    setTimeout(function(){
+        console.log('Fim');
+        $("#overlay").fadeOut(300);
+      },500);
+  });

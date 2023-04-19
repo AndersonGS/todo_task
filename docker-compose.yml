@@ -27,7 +27,7 @@ services:
         networks:
             - laravel
 
-    # db mysql
+    # db postgres
     db:
         image: postgres
         restart: unless-stopped
